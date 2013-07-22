@@ -1,0 +1,71 @@
+﻿body 
+{
+	direction:rtl;
+	font-family:"ALKATIP Tor", "UKIJ tuz tom", "UKK TZK1";
+	background-image:url(../Images/BodyBg.png);
+	background-repeat:repeat;
+	background-position:top;
+	font-size:10pt;
+}
+
+input, select, button, textarea, option
+{
+	direction:rtl;
+	font-family:"ALKATIP Tor", "UKIJ tuz tom", "UKK TZK1";
+}
+
+
+.MovieCoverImage
+{
+	 max-height:520px;
+	 max-width:480;
+	}
+	
+.Title
+{
+	 font-size:larger;
+	 font-family:"ALKATIP Tor Tom", "UKIJ tuz tom", "UKK TZK1";
+	}
+
+.BodyTop
+{
+	background-image:url(../Images/BodyTopBg.png);
+	background-repeat:no-repeat;
+	background-position:top;
+	height:30px;
+	}
+	
+.LinkStyle
+{
+	 text-decoration:none;
+	 color:#35A7DB;
+	}
+	
+.MenuItemBg
+{
+	background-image:url(../Images/MenuBg.png);
+	background-repeat:repeat-x;
+	background-position:top;
+	height:34px;
+	}
+
+.MenuItemHoverBg
+{
+	background-image:url(../Images/MenuHoverBg.png);
+	background-repeat:repeat-x;
+	background-position:top;
+	height:34px;
+	}
+	
+.SideBarHeader
+{
+	background-image:url(../Images/SideBarHeader.png);
+	background-repeat:repeat-x;
+	background-position:center;
+	height:25px;
+	padding-right:10px;
+	}
+.forLTR
+{
+	direction:ltr;
+	}

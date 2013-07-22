@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ManageMasterPage.master.cs" Inherits="Web_Manage_ManageMasterPage" %>
+
+<%@ Register src="../UserControls/Header.ascx" tagname="Header" tagprefix="uc1" %>
+<%@ Register src="../UserControls/Footer.ascx" tagname="Footer" tagprefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Styles/CommonStyles.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .style1
+        {
+            width: 1024px;
+            
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table cellpadding="0" cellspacing="0" class="style1" align="center">
+            <tr>
+                <td  style="text-align: center">
+                    <uc1:Header ID="Header1" runat="server" />
+                </td>
+            </tr>
+            <tr>
+            <td>
+            
+            <asp:Menu ID="mnuMain" runat="server" Orientation="Horizontal" 
+            StaticTopSeparatorImageUrl="~/Web/Common/Images/MenuSpliter.png" Width="100%">
+            <StaticMenuStyle CssClass="MenuItemBg" />
+            <StaticSelectedStyle CssClass="MenuItemHoverBg" />
+            <StaticMenuItemStyle CssClass="MenuItemBg" />
+            <DynamicHoverStyle CssClass="MenuItemHoverBg" />
+            <DynamicMenuStyle CssClass="MenuItemBg" />
+            <DynamicMenuItemStyle CssClass="MenuItemBg" />
+            <StaticHoverStyle CssClass="MenuItemHoverBg" />
+                <Items>
+                    <asp:MenuItem Text="باش بەت" Value="باش بەت"></asp:MenuItem>
+                    <asp:MenuItem Text="فىلىم باشقۇرۇش" Value="فىلىم">
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MMovieCatgory.aspx" 
+                            Text=" سەھىپە باشقۇرۇش" Value="فىلىم سەھىپىسى باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MMovie.aspx" Text="فىلىم باشقۇرۇش" 
+                            Value="فىلىم باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MMovieAdress.aspx" 
+                            Text="ئادرىس باشقۇرۇش" Value="فىلىم ئادرىسى باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MPictures.aspx" Text="رەسىم باشقۇرۇش" 
+                            Value="فىلىم رەسىمى باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MRecommend.aspx" 
+                            Text="تەۋىسسىيەلىك فىلىم" Value="تەۋىسسىيەلىك فىلىم باشقۇرۇش">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MWorkingMovie.aspx" 
+                            Text="ئىشلىنىۋاتقان فىلىمش" Value="ئىشلىنىۋاتقان فىلىم باشقۇرۇش">
+                        </asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="ئۇچۇر باشقۇرۇش" Value="ئۇچۇر">
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MArticleCatogory.aspx" 
+                            Text="ئۇچۇر سەھىپىسى باشقۇرۇش" Value="ئۇچۇر سەھىپىسى باشقۇرۇش">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MArticle.aspx" Text="ئۇچۇر باشقۇرۇش" 
+                            Value="ئۇچۇر باشقۇرۇش"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="بىكەت باشقۇرۇش" Value="بىكەت باشقۇرۇش">
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MAdvertize.aspx" Text="ئېلان باشقۇرۇش" 
+                            Value="ئېلان باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MDownloads.aspx" 
+                            Text="چۈشۈرۈلمە باشقۇرۇش" Value="چۈشۈرۈلمە باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MLinks.aspx" Text="ئۇلىنىش باشقۇرۇش" 
+                            Value="ئۇلىنىش باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/MUser.aspx" Text="ئەزا باشقۇرۇش" 
+                            Value="ئەزا باشقۇرۇش"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Web/Manage/ManageFile.aspx" Text="ھۆججەت باشقۇرۇش" 
+                            Value="ھۆججەت باشقۇرۇش"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Web/Manage/MLogOut.aspx" Text="چىقىش" 
+                        Value="New Item"></asp:MenuItem>
+                </Items>
+        </asp:Menu>
+            </td>
+            </tr>
+            <tr>
+                <td style=" background-color:White;">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; background-color:White;">
+                    <uc2:Footer ID="Footer1" runat="server" />
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Web_Common_MasterPages_MasterPage" %>
+
+
+
+<%@ Register src="../UserControls/SlideShow.ascx" tagname="SlideShow" tagprefix="uc1" %>
+
+
+
+<%@ Register src="../UserControls/Footer.ascx" tagname="Footer" tagprefix="uc2" %>
+
+
+
+<%@ Register src="../UserControls/Header.ascx" tagname="Header" tagprefix="uc3" %>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Styles/CommonStyles.css" rel="stylesheet" type="text/css" />
+</head>
+<body >
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <table border="0px" cellpadding="0" cellspacing="0" align="center" style=" width:1024px; text-align:center; ">
+    <tr>
+    <td   height="50px">
+        &nbsp;</td>
+    </tr>
+    <tr>
+    <td class="BodyTop" >
+    
+    </td>
+    </tr>
+        <tr>
+    <td >
+        
+    
+        <uc3:Header ID="Header1" runat="server" />
+            </td>
+    </tr>
+    <tr>
+    <td>
+        <asp:Menu ID="mnuMain" runat="server" Orientation="Horizontal" 
+            StaticTopSeparatorImageUrl="~/Web/Common/Images/MenuSpliter.png" Width="100%">
+            <StaticMenuStyle CssClass="MenuItemBg" />
+            <StaticSelectedStyle CssClass="MenuItemHoverBg" />
+            <StaticMenuItemStyle CssClass="MenuItemBg" />
+            <DynamicHoverStyle CssClass="MenuItemHoverBg" />
+            <DynamicMenuStyle CssClass="MenuItemBg" />
+            <DynamicMenuItemStyle CssClass="MenuItemBg" />
+            <StaticHoverStyle CssClass="MenuItemHoverBg" />
+        </asp:Menu>
+        </td>
+    </tr>
+        <tr>
+    <td style="background-color:White;">
+   <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    <br />
+    </td>
+    </tr>
+        <tr>
+    <td bgcolor="#E9E9E9" >
+    <uc2:Footer ID="Footer1" runat="server" />
+</td>
+    </tr>
+    </table>
+    
+   
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="UyTerjimeWeb" Class="dcUTWDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SARWAN-OFFIC-PC\SQLEX2008;Initial Catalog=UyTerjimeWeb;Persist Security Info=True;User ID=DbUser" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="UyTerjimeWebConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Advertizement" Member="Advertizements">
+    <Type Name="Advertizement">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NavUrl" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkingMovies" Member="WorkingMovies">
+    <Type Name="WorkingMovy">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Cover" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="OtherName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ReleaseTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Language" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IMDBUrl" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IMDBID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WorkingState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieCatgory" Member="MovieCatgories">
+    <Type Name="MovieCatgory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descraption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="MovieCatgory_Movie" Member="Movies" ThisKey="ID" OtherKey="Type" Type="Movie" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Picture" Member="Pictures">
+    <Type Name="Picture">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MovieID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Descraption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Movie_Picture" Member="Movie" ThisKey="MovieID" OtherKey="ID" Type="Movie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Downloads" Member="Downloads">
+    <Type Name="Download">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Descraption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DownCount" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Movie" Member="Movies">
+    <Type Name="Movie">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Cover" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="OtherName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ReleaseTime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Language" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Subtitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IMDBUrl" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IMDBID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Director" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Artst" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Descraption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="WatchCount" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DownCount" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WhatUrl" Type="System.String" DbType="NChar(1000)" CanBeNull="true" />
+      <Association Name="Movie_Picture" Member="Pictures" ThisKey="ID" OtherKey="MovieID" Type="Picture" />
+      <Association Name="Movie_Recommend" Member="Recommends" ThisKey="ID" OtherKey="MovieID" Type="Recommend" />
+      <Association Name="Movie_MovieAddr" Member="MovieAddrs" ThisKey="ID" OtherKey="MovieID" Type="MovieAddr" />
+      <Association Name="MovieCatgory_Movie" Member="MovieCatgory" ThisKey="Type" OtherKey="ID" Type="MovieCatgory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ArticleCatogry" Member="ArticleCatogries">
+    <Type Name="ArticleCatogry">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descraption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ArticleCatogry_Article" Member="Articles" ThisKey="ID" OtherKey="Catgory" Type="Article" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Recommend" Member="Recommends">
+    <Type Name="Recommend">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MovieID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Movie_Recommend" Member="Movie" ThisKey="MovieID" OtherKey="ID" Type="Movie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Article" Member="Articles">
+    <Type Name="Article">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ArticleContent" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Catgory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ManagerID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="VistCount" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="ArticleCatogry_Article" Member="ArticleCatogry" ThisKey="Catgory" OtherKey="ID" Type="ArticleCatogry" IsForeignKey="true" />
+      <Association Name="Manager_Article" Member="Manager" ThisKey="ManagerID" OtherKey="ID" Type="Manager" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Manager" Member="Managers">
+    <Type Name="Manager">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TelePhone" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Task" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Manager_Article" Member="Articles" ThisKey="ID" OtherKey="ManagerID" Type="Article" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieAddr" Member="MovieAddrs">
+    <Type Name="MovieAddr">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MovieID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FileType" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Resolution" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="OtherInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MovieTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DownCount" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="WatchCount" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Movie_MovieAddr" Member="Movie" ThisKey="MovieID" OtherKey="ID" Type="Movie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Menu" Member="Menus">
+    <Type Name="Menu">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Target" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Parent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Links" Member="Links">
+    <Type Name="Link">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Descraption" Type="System.String" DbType="NChar(1000)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="NChar(500)" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsImageLink" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Serial" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TelePhone" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Task" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LoginCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BuyCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="User_Note" Member="Notes" ThisKey="ID" OtherKey="UserID" Type="Note" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Note" Member="Notes">
+    <Type Name="Note">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MovieTitle" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MovieID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Count" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FileFormat" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="DiscType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Resolution" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Memo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Sate" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="User_Note" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+      <Association Name="FileFormat_Note" Member="FileFormat1" ThisKey="FileFormat" OtherKey="ID" Type="FileFormat" IsForeignKey="true" />
+      <Association Name="DiscType_Note" Member="DiscType1" ThisKey="DiscType" OtherKey="ID" Type="DiscType" IsForeignKey="true" />
+      <Association Name="Resolution_Note" Member="Resolution1" ThisKey="Resolution" OtherKey="ID" Type="Resolution" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FileFormat" Member="FileFormats">
+    <Type Name="FileFormat">
+      <Column Name="ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileFormat" Member="FileFormat1" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="FileFormat_Note" Member="Notes" ThisKey="ID" OtherKey="FileFormat" Type="Note" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiscType" Member="DiscTypes">
+    <Type Name="DiscType">
+      <Column Name="ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DiscType" Member="DiscType1" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="DiscType_Note" Member="Notes" ThisKey="ID" OtherKey="DiscType" Type="Note" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Resolution" Member="Resolutions">
+    <Type Name="Resolution">
+      <Column Name="ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Resolution" Member="Resolution1" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Resolution_Note" Member="Notes" ThisKey="ID" OtherKey="Resolution" Type="Note" />
+    </Type>
+  </Table>
+</Database>
